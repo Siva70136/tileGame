@@ -25,6 +25,7 @@ const Rules = () => {
                             </button>
                             <p className="">Red Ball Gives -10 score</p>
                             <p className="">Blue Ball Gives +10 score</p>
+                            <p className="">Green Ball Gives +0 score</p>
                             <div className="button-container">
                                 <button
                                     type="button"

@@ -23,9 +23,14 @@ const App = () => {
   };
 
   const handleTileClick = (row, col) => {
-    if (grid[row][col] == 'red') {
+    if (grid[row][col] === 'red') {
       setScore(pre => {
         return pre - 10;
+      })
+    }
+    else if (grid[row][col] === 'green') {
+      setScore(pre => {
+        return pre;
       })
     }
     else {
@@ -38,6 +43,7 @@ const App = () => {
 
   const handleStartGame = () => {
     setScore(0);
+    fetchGridPattern();
   };
 
   const handleStopGame = () => {
@@ -46,7 +52,10 @@ const App = () => {
 
   return (
     <div>
-      <Rules />
+      <div className='rules-score-section'>
+        <Rules />
+        <div className='score'>Score: {score}</div>
+      </div>
       <div className='header-section'>
         <button onClick={handleStartGame} className='button'>Start Game</button>
         <button onClick={handleStopGame} className='button'>Stop Game</button>
@@ -54,7 +63,7 @@ const App = () => {
           <option value={1}>250ms</option>
           <option value={2}>200ms</option>
         </select>
-        <div className='score'>Score: {score}</div>
+
       </div>
       <div className="grid-container">
         {grid.map((row, rowIndex) => {
